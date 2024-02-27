@@ -13,6 +13,7 @@ taskipy = "^1.12.2"
 isort = "^5.13.2"
 black = "^24.2.0"
 pytest = "^8.0.2"
+poetry-plugin-export = "^1.6.0"
 
 
 [build-system]
