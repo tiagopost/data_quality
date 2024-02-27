@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "data-quality"
+version = "0.1.0"
+description = ""
+authors = ["TIAGO POST <TIAGOSPOST@GMAIL.COM>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.11"
+taskipy = "^1.12.2"
+isort = "^5.13.2"
+black = "^24.2.0"
+pytest = "^8.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+format = """
+isort .
+black .
+"""
+kill = "kill -9 $(lsof -t -i :8000)"
+test = "pytest -v -p no:warnings"
+run = """
+python3 app/main.py
+"""
+doc = "mkdocs serve"
